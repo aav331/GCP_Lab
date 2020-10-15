@@ -1,0 +1,5 @@
+runtime: nodejs10
+service: default
+
+vpc_access_connector: 
+    name: "projects/${PROJECT_ID}/locations/us-central1/connectors/${VPC_CONNECTOR_NAME}"

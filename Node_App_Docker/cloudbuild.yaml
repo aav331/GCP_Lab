@@ -1,0 +1,14 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/{PROJECT_ID}/{REPO_NAME}/node-web-app:first', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/{PROJECT_ID}/{REPO_NAME}/node-web-app:first']
+
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=k8config.yml
+      - --image=gcr.io/{PROJECT_ID}/{REPO_NAME}/node-web-app:first
+      - --location={REGION}
+      - --cluster={CLUSTER_NAME}
