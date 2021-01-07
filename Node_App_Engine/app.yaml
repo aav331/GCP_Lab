@@ -2,4 +2,4 @@ runtime: nodejs10
 service: app-test
 
 vpc_access_connector: 
-    name: "projects/coastal-sunspot-275015/locations/us-central1/connectors/cdle-sf-api-vpc-conn"
+    name: "projects/{project-name}/locations/us-central1/connectors/{vp-connector}"
